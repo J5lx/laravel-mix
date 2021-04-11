@@ -178,7 +178,7 @@ function getEffectiveEnv(opts) {
     }
 
     // We use `development` by default or under certain specific conditions when testing
-    if (!process.env.NODE_ENV || (isTesting() && process.env.NODE_ENV === 'test')) {
+    if (isTesting() && process.env.NODE_ENV === 'test') {
         return 'development';
     }
 
