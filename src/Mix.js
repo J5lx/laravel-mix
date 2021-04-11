@@ -5,6 +5,7 @@ let Components = require('./components/Components');
 let Dependencies = require('./Dependencies');
 let Dispatcher = require('./Dispatcher');
 let Dotenv = require('dotenv');
+let Expand = require('dotenv-expand');
 let File = require('./File');
 let HotReloading = require('./HotReloading');
 let Manifest = require('./Manifest');
@@ -95,7 +96,7 @@ class Mix {
         this.booted = true;
 
         // Load .env
-        Dotenv.config();
+        Expand(Dotenv.config());
 
         // If we're using Laravel set the public path by default
         if (this.sees('laravel')) {
